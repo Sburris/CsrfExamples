@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  csrfexample.mvccore:
+    image: ${DOCKER_REGISTRY}csrfexamplemvccore
+    ports:
+      - "8080:80"
+    build:
+      context: .
+      dockerfile: CsrfExample.MvcCore/Dockerfile
+
+  csrfexample.evilsitecore:
+    image: ${DOCKER_REGISTRY}csrfexampleevilsitecore
+    ports:
+      - "8666:80"
+    build:
+      context: .
+      dockerfile: CsrfExample.EvilSiteCore/Dockerfile

@@ -1,0 +1,97 @@
+﻿@model CsrfExamples.Mvc.Controllers.IndexViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+    <link href="~/Content/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.cosmo.css" rel="stylesheet" />
+</head>
+<body>
+<div>
+    <div class="container">
+        
+        @using (Html.BeginForm())
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Transfer Money</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div>
+                        From: @Html.DropDownList("fromAccount", Model.ddlAccounts)
+                    </div>
+                    <div>
+                        To: @Html.DropDownList("toAccount", Model.ddlAccounts)
+                    </div>
+                    <div>
+                        Amount: @Html.TextBox("amount")
+                    </div>
+                    <div>
+                        <input type="submit" value="Transfer Funds"/>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Balances</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Account Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var account in Model.Accounts)
+                        {
+                            <tr>
+                                <td>@account.Id</td>
+                                <td>@account.Name</td>
+                                <td>@account.Balance</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Transactions</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Date & Time</th>
+                        <th scope="col">Transactions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var transaction in Model.Transactions)
+                        {
+                            <tr>
+                                <td>@transaction.DateTime</td>
+                                <td>@transaction.Description</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>             
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

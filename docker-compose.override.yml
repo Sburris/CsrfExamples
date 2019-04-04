@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  csrfexample.mvccore:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  csrfexample.evilsitecore:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
